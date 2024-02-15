@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.x/destyle.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.x/css/all.min.css" />
+	<link rel="stylesheet" href="/app.css" />
+	<title>HTML - Responsive Sidebar - 3 Columns</title>
+</head>
+<body>
+	<div class="app" x-cloak x-data="xApp()">
+		<div class="state" >
+			<span x-bind:class="{ 'has-menu': menu.isVisible, 'has-side': side.isVisible }"></span>
+		</div>
+		<div class="header">
+			<div>
+				<button class="icon-button menu-button" x-on:click="menu.toggle()" title="MENU">
+					<i class="fa-solid fa-bars"></i>
+				</button>
+				<a class="brand" href="/">
+					<span>LOGO</span>
+				</a>
+			</div>
+			<div>
+				<span>Page Title</span>
+			</div>
+			<div>
+				<button class="icon-button" x-on:click="side.toggle()" title="SIDE">
+					<i class="fa-solid fa-sliders"></i>
+				</button>
+			</div>
+		</div>
+		<div class="menu-backdrop" x-on:click="menu.close()"></div>
+		<div class="menu-content">
+			<ul class="menu-links">
+				<li>
+					<a class="menu-link" href="#1-1" x-on:click="menu.close()">Page 1-1</a>
+				</li>
+				<li>
+					<a class="menu-link" href="#1-2" x-on:click="menu.close()">Page 1-2</a>
+				</li>
+				<li>
+					<a class="menu-link" href="#1-3" x-on:click="menu.close()">Page 1-3</a>
+				</li>
+			</ul>
+			<ul class="menu-links">
+				<li>
+					<a class="menu-link" href="#2-1" x-on:click="menu.close()">Page 2-1</a>
+				</li>
+				<li>
+					<a class="menu-link" href="#2-2" x-on:click="menu.close()">Page 2-2</a>
+				</li>
+			</ul>
+		</div>
+		<div class="frame">
+			<div class="side-backdrop" x-on:click="side.close()"></div>
+			<div class="side-content">
+				<p class="content-block">SIDE</p>
+			</div>
+			<div class="main">
+				<div class="demo1 tile">
+					<p>
+						<button class="demo-button" x-on:click="menu.toggle()">MENU</button>
+						<span x-text="menu.isVisible"></span>
+					</p>
+					<p>
+						<button class="demo-button" x-on:click="side.toggle()">SIDE</button>
+						<span x-text="side.isVisible"></span>
+					</p>
+				</div>
+				<div class="demo2">
+					<div class="tile">
+						<p>Content-1</p>
+					</div>
+					<div class="tile">
+						<p>Content-2</p>
+					</div>
+					<div class="tile">
+						<p>Content-3</p>
+					</div>
+					<div class="tile">
+						<p>Content-4</p>
+					</div>
+					<div class="tile">
+						<p>Content-5</p>
+					</div>
+					<div class="tile">
+						<p>Content-6</p>
+					</div>
+					<div class="tile">
+						<p>Content-7</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/app.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.13.x/dist/cdn.min.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.x/dist/cdn.min.js" defer></script>
+</body>
+</html>
